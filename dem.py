@@ -18,12 +18,12 @@ def read_chromosome_file(chromo_filename, genome_seq):
             # Adjust start and end if out of bounds
             if start >= genome_length:
                 chromo_seq = ""
-                print(f"⚠️ Warning: Chromosome {chromo_id} start position {start} is out of genome range.")
+                print(f"Warning: Chromosome {chromo_id} start position {start} is out of genome range.")
             else:
                 end = min(end, genome_length)
                 chromo_seq = genome_seq[start:end]
                 if chromo_seq == "":
-                    print(f"⚠️ Warning: Chromosome {chromo_id} sequence is empty.")
+                    print(f" Warning: Chromosome {chromo_id} sequence is empty.")
 
             chromo_list.append((chromo_id, chromo_seq))
     return chromo_list
@@ -56,7 +56,7 @@ def main():
     chromo_file = input("Enter chromosome details file (.csv or .txt): ")
 
     genome_seq = read_genome_file(genome_file)
-    print("✅ Genome length:", len(genome_seq))
+    print(" Genome length:", len(genome_seq))
 
     chromo_list = read_chromosome_file(chromo_file, genome_seq)
 
@@ -82,7 +82,7 @@ def main():
         print("\n✔ Best Match Pair:", best_pair[0], "and", best_pair[1])
         print(f"✔ Similarity: {best_similarity:.2f}%")
     else:
-        print("\n❌ No valid chromosome pairs found.")
+        print("\n No valid chromosome pairs found.")
 
 if __name__ == "__main__":
     main()
